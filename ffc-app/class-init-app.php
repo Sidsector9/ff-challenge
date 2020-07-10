@@ -20,5 +20,6 @@ class Init_App {
 		( new \FFCApp\Register_Assets() )->init();
 		( new \FFCApp\Shortcodes\Challenge() )->init();
 		( new \FFCApp\AjaxHandlers\Challenge_Shortcode_Ajax_Handler() )->init();
+		( new \FFCApp\Cli\FF_Cli() )->init();
 	}
 }
