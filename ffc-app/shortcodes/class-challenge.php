@@ -13,18 +13,18 @@ namespace FFCApp\Shortcodes;
 class Challenge {
 
 	/**
-     * Calls necessary actions and filters.
-     */
+	 * Calls necessary actions and filters.
+	 */
 	public function init() {
 		add_shortcode( 'ffc_challenge', array( $this, 'render_shortcode' ) );
 	}
 
 	/**
-     * Renders the content for the `ffc_challenge` shortcode.
+	 * Renders the content for the `ffc_challenge` shortcode.
 	 *
-	 * @param array $attributes Array of shortcode attributes. 
+	 * @param array $attributes Array of shortcode attributes.
 	 * @return string
-     */
+	 */
 	public function render_shortcode( $attributes ) {
 
 		/**
@@ -36,20 +36,22 @@ class Challenge {
 		if ( false === $cached_data || empty( $cached_data ) ) {
 
 			/**
-			 * We don't want `ffc-script-front` script to enqueue if the
-			 * shortcode isn't used on the post page. This is why the
-			 * script is conditionally enqueued from the render_shortcode
-			 * method.
+			 * We don't want `ffc-challenge-shortcode-script` script to
+			 * enqueue if the shortcode isn't used on the post page.
+			 * This is why the script is conditionally enqueued from the
+			 * render_shortcode method.
 			 *
-			 * If the cache is empty, enqueue the `ffc-script-front` script.
+			 * If the cache is empty, enqueue the `ffc-challenge-shortcode-script`
+			 * script.
+			 *
 			 * This script is responsible for making the AJAX call to the API
 			 * to fetch data for the shortcode.
 			 */
-			wp_enqueue_script( 'ffc-script-front' );
+			wp_enqueue_script( 'ffc-challenge-shortcode-script' );
 
 			/**
 			 * Render the table container which will be populated by the
-			 * response of the AJAX call performed by `ffc-script-front`
+			 * response of the AJAX call performed by `ffc-challenge-shortcode-script`
 			 * script.
 			 */
 			return '<table class="ffc-challenge-table"></table>';
@@ -61,7 +63,6 @@ class Challenge {
 
 		<table>
 			<thead>
-			
 
 		<?php
 
@@ -102,7 +103,7 @@ class Challenge {
 				esc_html( $body_item['date'] )
 			);
 		}
-		
+
 		?>
 			</tbody>
 		</table>

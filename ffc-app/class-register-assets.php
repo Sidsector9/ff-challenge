@@ -27,8 +27,15 @@ class Register_Assets {
 		$is_cached = wp_cache_get( 'ffc_challenge_payload' );
 
 		if ( false === $is_cached ) {
-			wp_register_script( 'ffc-script-front', FFC_URL . 'src/front/js/ffc-front.js', array(), '1.0', true );
-			wp_localize_script( 'ffc-script-front', 'ffcGlobal', array( 'ajaxUrl' => admin_url( 'admin-ajax.php' ), 'ffcShortcodeNonce' => wp_create_nonce( 'ffc-shortcode-nonce' ) ) );
+			wp_register_script( 'ffc-challenge-shortcode-script', FFC_URL . 'src/front/js/ffc-challenge-shortcode.js', array(), '1.0', true );
+			wp_localize_script(
+				'ffc-challenge-shortcode-script',
+				'ffcGlobal',
+				array(
+					'ajaxUrl'           => admin_url( 'admin-ajax.php' ),
+					'ffcShortcodeNonce' => wp_create_nonce( 'ffc-shortcode-nonce' ),
+				)
+			);
 		}
 	}
 }
