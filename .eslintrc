@@ -1,3 +1,9 @@
 {
-    "extends": [ "plugin:@wordpress/eslint-plugin/recommended" ]
+    "extends": [ "plugin:@wordpress/eslint-plugin/recommended" ],
+    "globals": {
+        "ffI18n": "readonly",
+        "fetch": "readonly",
+        "FormData": "readonly",
+        "ffcGlobal": "readonly"
+    }
 }

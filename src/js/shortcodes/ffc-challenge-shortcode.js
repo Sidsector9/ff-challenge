@@ -17,8 +17,7 @@ addLoaderToElements( '.ffc-challenge-table' );
 /**
  * Call the Challenge API.
  */
-getChallengeData().then( function( responseData ) {
-
+getChallengeData().then( function ( responseData ) {
 	/**
 	 * Remove the loader once AJAX call completes.
 	 */

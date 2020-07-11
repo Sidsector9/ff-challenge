@@ -1,13 +1,12 @@
 /**
  * GET's the challenge data from the strategy11 API.
- *
- * @return JSON
  */
 export function getChallengeData() {
-	return fetch( 'http://api.strategy11.com/wp-json/challenge/v1/1' )
-		.then( response => {
+	return fetch( 'http://api.strategy11.com/wp-json/challenge/v1/1' ).then(
+		( response ) => {
 			return response.json();
-		} )
+		}
+	);
 }
 
 /**
@@ -29,7 +28,7 @@ export function sendChallengeShortcodeDataToServer( data ) {
 	return fetch( ffcGlobal.ajaxUrl, {
 		method: 'POST',
 		body: ffcShortcodeData,
-	} )
+	} );
 }
 
 /**
@@ -38,12 +37,11 @@ export function sendChallengeShortcodeDataToServer( data ) {
  * @param {Object} tableData Data to generate table head and body.
  */
 export function generateChallengeShortcodeTable( tableData ) {
-
 	/**
 	 * This will be used inside <thead> element.
 	 */
 	const tableHeaderData = tableData.headers;
-	
+
 	/**
 	 * This will be used inside <tbody> element.
 	 */
@@ -54,7 +52,7 @@ export function generateChallengeShortcodeTable( tableData ) {
 	 * be later populated by `tableData`.
 	 */
 	const ffcTable = document.querySelectorAll( '.ffc-challenge-table' );
-	
+
 	if ( ffcTable.innerHTML ) {
 		ffcTable.innerHTML = '';
 	}
@@ -64,33 +62,33 @@ export function generateChallengeShortcodeTable( tableData ) {
 	 *
 	 * This is done since it is possible that a shor
 	 */
-	[].forEach.call( ffcTable, function( node ) {
+	[].forEach.call( ffcTable, function ( node ) {
 		const fragment = document.createDocumentFragment();
 		const tableHeader = document.createElement( 'thead' );
 		const tableFooter = document.createElement( 'tfoot' );
 		const tableHeaderRow = document.createElement( 'tr' );
 		const tableFooterRow = document.createElement( 'tr' );
 		const tableBody = document.createElement( 'tbody' );
-		
+
 		tableHeader.appendChild( tableHeaderRow );
 		tableFooter.appendChild( tableFooterRow );
 
 		/**
 		 * Populate <th /> elements inside <thead />.
 		 */
-		tableHeaderData.forEach( item => {
+		tableHeaderData.forEach( ( item ) => {
 			const thNode = document.createElement( 'th' );
 			thNode.innerText = item;
-			tableHeaderRow.appendChild( thNode )
+			tableHeaderRow.appendChild( thNode );
 		} );
-		
-		 /**
+
+		/**
 		 * Populate <th /> elements inside <tfoot />.
 		 */
-		tableHeaderData.forEach( item => {
+		tableHeaderData.forEach( ( item ) => {
 			const thNode = document.createElement( 'th' );
 			thNode.innerText = item;
-			tableFooterRow.appendChild( thNode )
+			tableFooterRow.appendChild( thNode );
 		} );
 
 		/**
@@ -107,7 +105,7 @@ export function generateChallengeShortcodeTable( tableData ) {
 			`;
 
 			tableBody.appendChild( trNode );
-		};
+		}
 
 		/**
 		 * Append <thead /> and <tbody /> to
@@ -116,13 +114,13 @@ export function generateChallengeShortcodeTable( tableData ) {
 		fragment.appendChild( tableHeader );
 		fragment.appendChild( tableBody );
 		fragment.appendChild( tableFooter );
-		
+
 		/**
 		 * Append Document Fragment to all the empty <table />
 		 * containers with the class `.ffc-challenge-table`
 		 */
 		node.appendChild( fragment );
-	} )
+	} );
 }
 
 /**
@@ -138,17 +136,17 @@ export function toggleLoader( status ) {
 	}
 
 	if ( 'show' === status ) {
-		[].forEach.call( loaders, function( loader ) {
+		[].forEach.call( loaders, function ( loader ) {
 			loader.classList.remove( 'ffc-options__loader--hide' );
 			loader.classList.add( 'ffc-options__loader--show' );
-		} )
+		} );
 	}
 
 	if ( 'hide' === status ) {
-		[].forEach.call( loaders, function( loader ) {
+		[].forEach.call( loaders, function ( loader ) {
 			loader.classList.remove( 'ffc-options__loader--show' );
 			loader.classList.add( 'ffc-options__loader--hide' );
-		} )
+		} );
 	}
 }
 
@@ -164,7 +162,7 @@ export function addLoaderToElements( className ) {
 		return;
 	}
 
-	[].forEach.call( elements, function( element ) {
+	[].forEach.call( elements, function ( element ) {
 		element.insertAdjacentHTML(
 			'afterend',
 			`<div class="ffc-loader-container">
@@ -184,7 +182,7 @@ export function removeLoaderFromElements() {
 		return;
 	}
 
-	[].forEach.call( elements, function( element ) {
+	[].forEach.call( elements, function ( element ) {
 		element.remove();
 	} );
 }
