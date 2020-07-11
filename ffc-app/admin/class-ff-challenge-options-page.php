@@ -53,8 +53,8 @@ class FF_Challenge_Options_Page {
 			'ffc-settings',
 			'ffI18n',
 			array(
-				'refreshData'  => __( 'Refresh data', 'ff-challenge' ),
-				'refreshing'   => __( 'Refreshing...', 'ff-challenge' ),
+				'refreshData' => __( 'Refresh data', 'ff-challenge' ),
+				'refreshing'  => __( 'Refreshing...', 'ff-challenge' ),
 			)
 		);
 	}
