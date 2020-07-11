@@ -1,0 +1,24 @@
+name: FF Challenge tests
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  wpcs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: php-actions/composer@v1
+    - name: Run WordPress Coding Standards
+      run: ./vendor/bin/phpcs --standard=WordPress ./ffc-app
+
+  phpunit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: php-actions/composer@v1
+    - name: Run PHPUnit
+      run: ./vendor/bin/phpunit
