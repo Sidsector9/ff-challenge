@@ -37,8 +37,14 @@ class FF_Challenge_Options_Page {
 	/**
 	 * Registers the assets necessary for the
 	 * `FF Challenge Options` page.
+	 *
+	 * @param string $hook_suffix Current page hook suffix.
 	 */
-	public function register_scripts() {
+	public function register_scripts( $hook_suffix ) {
+		if ( 'toplevel_page_ff-challenge' !== $hook_suffix ) {
+			return;
+		}
+
 		wp_register_script( 'ffc-settings', FFC_URL . 'dist/js/ffc-settings.js', array(), '1.0', true );
 		wp_enqueue_script( 'ffc-settings' );
 		wp_localize_script(
