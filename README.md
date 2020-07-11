@@ -1,6 +1,7 @@
 # FF Challenge
 ![WPCS](https://github.com/Sidsector9/ff-challenge/workflows/WPCS/badge.svg?branch=master)
 ![PHPUnit](https://github.com/Sidsector9/ff-challenge/workflows/PHPUnit/badge.svg?branch=master)
+![ESLint](https://github.com/Sidsector9/ff-challenge/workflows/ESLint/badge.svg?branch=master)
 
 ### Acceptance criteria:
 - [x] Can be used when logged out or in
