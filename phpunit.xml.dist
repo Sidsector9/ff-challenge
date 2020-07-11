@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<phpunit bootstrap="tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="tests">
+            <directory prefix="test-" suffix=".php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./ffc-app</directory>
+            <exclude>
+                <directory suffix=".php">/tests/</directory>
+                <directory suffix=".php">/vendor/</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
