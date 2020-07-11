@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@wordpress/eslint-plugin": "^7.1.0",
     "css-loader": "^3.6.0",
+    "eslint": "^7.4.0",
     "file-loader": "^6.0.0",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
@@ -13,6 +15,7 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "dev": "webpack --mode development --watch"
+    "dev": "webpack --mode development --watch",
+    "eslint": "eslint"
   }
 }
