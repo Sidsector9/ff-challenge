@@ -1,24 +1,23 @@
-const ffcShortcodeData = new FormData();
-
-fetch( 'http://api.strategy11.com/wp-json/challenge/v1/1' )
-	.then( response => {
-		return response.json();
-	} )
-	.then( responseData => {
-		const ffcShortcodeData = new FormData();
-		ffcShortcodeData.append( 'action', 'ffc_challenge_shortcode_handler' );
-		ffcShortcodeData.append( 'nonce', ffcGlobal.ffcShortcodeNonce );
-		ffcShortcodeData.append( 'payload', JSON.stringify( responseData ) );
-
-		generate_table( responseData.data );
-
-		fetch( ffcGlobal.ajaxUrl, {
-			method: 'POST',
-			body: ffcShortcodeData,
+function getDataForChallenge() {
+	return fetch( 'http://api.strategy11.com/wp-json/challenge/v1/1' )
+		.then( response => {
+			return response.json();
 		} )
-	} )
+}
 
-function generate_table( tableData ) {
+function cacheChallengeData( data ) {
+	const ffcShortcodeData = new FormData();
+	ffcShortcodeData.append( 'action', 'ffc_challenge_shortcode_handler' );
+	ffcShortcodeData.append( 'nonce', ffcGlobal.ffcShortcodeNonce );
+	ffcShortcodeData.append( 'payload', JSON.stringify( data ) );
+
+	fetch( ffcGlobal.ajaxUrl, {
+		method: 'POST',
+		body: ffcShortcodeData,
+	} )
+}
+
+function generateChallengeShortcodeTable( tableData ) {
 	const tableHeaderData = tableData.headers;
 	const tableBodyData = tableData.rows;
 	const ffcTable = document.querySelectorAll( '.ffc-challenge-table' );
@@ -52,3 +51,8 @@ function generate_table( tableData ) {
 		node.appendChild( fragment );
 	} )
 }
+
+getDataForChallenge().then( function( responseData ) {
+	cacheChallengeData( responseData );
+	generateChallengeShortcodeTable( responseData.data );
+} );
