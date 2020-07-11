@@ -18,7 +18,7 @@ This plugin relies on [Redis Object Cache](https://wordpress.org/plugins/redis-c
 
 ### Features:
 - **Shortcode**: `[ffc_challenge /]` renders the data from the API from the acceptance criteria in a table
-- **CLI**: `ff clear challenge-shortcode` will force the refresh of the data
+- **CLI**: `wp ff clear challenge-shortcode` will force the refresh of the data
 - **Options Page**: `Admin Dashboard > FF Challenge ` displays the API data on a custom options page
 
 ### PHPUnit Tests
