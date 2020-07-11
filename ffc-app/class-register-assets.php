@@ -32,6 +32,7 @@ class Register_Assets {
 				'ffc-challenge-shortcode-script',
 				'ffcGlobal',
 				array(
+					'pluginUrl'         => FFC_URL,
 					'ajaxUrl'           => admin_url( 'admin-ajax.php' ),
 					'ffcShortcodeNonce' => wp_create_nonce( 'ffc-shortcode-nonce' ),
 				)

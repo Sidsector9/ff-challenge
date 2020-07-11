@@ -1,0 +1,93 @@
+$ffc-blue: #4199fd;
+$ffc-blue-dark: #3177c7;
+$ffc-white: #fff;
+$ffc-light-gray: #fafafa;
+$ffc-medium-gray: #ccd0d4;
+
+body {
+	background: $ffc-white;
+}
+
+.ffc-options {
+	padding: 3rem 2rem;
+
+	&__control-bar {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+
+		.ffc-options__logo {
+			display: block;
+		}
+	}
+
+	&__control-bar-item {
+		margin-right: 1rem;
+	}
+
+	&__button {
+		display: flex;
+		align-items: center;
+		border: 1px solid $ffc-blue;
+		border-radius: 30px;
+		background-color: $ffc-blue;
+		color: $ffc-white;
+		cursor: pointer;
+		padding: 5px 15px;
+		transition: background-color 0.3s ease;
+		box-shadow: none;
+		outline: 0;
+	
+		&:hover {
+			background-color: $ffc-blue-dark;
+			transition: background-color 0.3s ease;
+		}
+	}
+	
+	&__loader {
+		display: none;
+		width: 15px;
+		margin-left: 8px;
+
+		&--show {
+			display: inline-block;
+		}
+
+		&--hide {
+			display: none;
+		}
+	}
+
+	.ffc-challenge-table {
+		margin-top: 1rem;
+		width: 100%;
+		text-align: left;
+		border-collapse: collapse;
+
+		thead tr {
+			border-bottom: 1px solid $ffc-medium-gray;
+
+			th {
+				padding: 1rem 0;
+			}
+		}
+
+		tfoot tr {
+			border-top: 1px solid $ffc-medium-gray;
+
+			th {
+				padding: 1rem 0;
+			}
+		}
+
+		tbody tr {
+			&:nth-child( even ) {
+				background-color: $ffc-light-gray;
+			}
+
+			td {
+				padding: 1rem 0;
+			}
+		}
+	}
+}

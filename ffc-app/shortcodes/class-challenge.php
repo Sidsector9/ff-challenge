@@ -72,6 +72,23 @@ class Challenge {
 
 		?>
 			</tbody>
+			<tfoot>
+
+			<?php
+
+			/**
+			 * Print the headers for the table.
+			 */
+			foreach ( $cached_data['data']['headers'] as $header_item ) {
+				printf(
+					'<th>%s</th>',
+					esc_html( $header_item )
+				);
+			}
+
+			?>
+
+			</tfoot>
 		</table>
 
 		<?php

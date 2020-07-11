@@ -12,6 +12,10 @@ namespace FFCApp\Admin;
  * Defines WP-CLI commands for the FF Challenge App.
  */
 class FF_Challenge_Options_Page {
+
+	/**
+	 * Calls necessary actions and filters.
+	 */
 	public function init() {
 		add_action( 'admin_menu', array( $this, 'register_options_page' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_scripts' ) );
@@ -45,16 +49,35 @@ class FF_Challenge_Options_Page {
 				'ffcShortcodeNonce' => wp_create_nonce( 'ffc-shortcode-nonce' ),
 			)
 		);
+		wp_localize_script(
+			'ffc-settings',
+			'ffI18n',
+			array(
+				'refreshData'  => __( 'Refresh data', 'ff-challenge' ),
+				'refreshing'   => __( 'Refreshing...', 'ff-challenge' ),
+			)
+		);
 	}
 
 	/**
 	 * Renders content for the `FF Challenge Options` page.
 	 */
 	public function render_ff_settings_page() {
-		printf(
-			'<button type="button" class="ff-refresh-challenge-data">%s</button>',
-			esc_html__( 'Refresh data', 'ff-challenge' )
-		);
+		printf( '<div class="ffc-options">' );
+
+		?>
+		<div class="ffc-options__control-bar">
+			<div class="ffc-options__control-bar-item">
+				<img class="ffc-options__logo" src="<?php echo esc_url( FFC_URL . 'dist/images/logo.svg' ); ?>" />
+			</div>
+			<div class="ffc-options__control-bar-item">
+				<button type="button" class="ffc-options__button ffc-options__button--refresh-data"><?php esc_html_e( 'Refresh data', 'ff-challenge' ); ?>
+					<img class="ffc-options__loader ffc-loader" src="<?php echo esc_url( FFC_URL . 'dist/images/loader.svg' ); ?>" />
+				</button>
+			</div>
+		</div>
+
+		<?php
 
 		$cached_data = wp_cache_get( 'ffc_challenge_payload' );
 
@@ -64,5 +87,7 @@ class FF_Challenge_Options_Page {
 		} else {
 			\FFCApp\Shortcodes\Challenge::challenge_shortcode_table_content( $cached_data );
 		}
+
+		printf( '</div>' );
 	}
 }
