@@ -16,6 +16,7 @@
   },
   "scripts": {
     "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
     "eslint": "eslint"
   }
 }
