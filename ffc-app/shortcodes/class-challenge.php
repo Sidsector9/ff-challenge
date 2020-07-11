@@ -20,48 +20,14 @@ class Challenge {
 	}
 
 	/**
-	 * Renders the content for the `ffc_challenge` shortcode.
+	 * Generates data for the shortcode table.
 	 *
-	 * @param array $attributes Array of shortcode attributes.
-	 * @return string
+	 * @param array $cached_data Array of cached data necessary to build the table.
 	 */
-	public function render_shortcode( $attributes ) {
-
-		/**
-		 * The cache will contain a cached copy of the data for the
-		 * shortcode with an expiry of 1 hour.
-		 */
-		$cached_data = wp_cache_get( 'ffc_challenge_payload' );
-
-		if ( false === $cached_data || empty( $cached_data ) ) {
-
-			/**
-			 * We don't want `ffc-challenge-shortcode-script` script to
-			 * enqueue if the shortcode isn't used on the post page.
-			 * This is why the script is conditionally enqueued from the
-			 * render_shortcode method.
-			 *
-			 * If the cache is empty, enqueue the `ffc-challenge-shortcode-script`
-			 * script.
-			 *
-			 * This script is responsible for making the AJAX call to the API
-			 * to fetch data for the shortcode.
-			 */
-			wp_enqueue_script( 'ffc-challenge-shortcode-script' );
-
-			/**
-			 * Render the table container which will be populated by the
-			 * response of the AJAX call performed by `ffc-challenge-shortcode-script`
-			 * script.
-			 */
-			return '<table class="ffc-challenge-table"></table>';
-		}
-
-		ob_start();
-
+	public static function challenge_shortcode_table_content( $cached_data ) {
 		?>
 
-		<table>
+		<table class="ffc-challenge-table">
 			<thead>
 
 		<?php
@@ -109,6 +75,49 @@ class Challenge {
 		</table>
 
 		<?php
+	}
+
+	/**
+	 * Renders the content for the `ffc_challenge` shortcode.
+	 *
+	 * @param array $attributes Array of shortcode attributes.
+	 * @return string
+	 */
+	public function render_shortcode( $attributes ) {
+
+		/**
+		 * The cache will contain a cached copy of the data for the
+		 * shortcode with an expiry of 1 hour.
+		 */
+		$cached_data = wp_cache_get( 'ffc_challenge_payload' );
+
+		if ( false === $cached_data || empty( $cached_data ) ) {
+
+			/**
+			 * We don't want `ffc-challenge-shortcode-script` script to
+			 * enqueue if the shortcode isn't used on the post page.
+			 * This is why the script is conditionally enqueued from the
+			 * render_shortcode method.
+			 *
+			 * If the cache is empty, enqueue the `ffc-challenge-shortcode-script`
+			 * script.
+			 *
+			 * This script is responsible for making the AJAX call to the API
+			 * to fetch data for the shortcode.
+			 */
+			wp_enqueue_script( 'ffc-challenge-shortcode-script' );
+
+			/**
+			 * Render the table container which will be populated by the
+			 * response of the AJAX call performed by `ffc-challenge-shortcode-script`
+			 * script.
+			 */
+			return '<table class="ffc-challenge-table"></table>';
+		}
+
+		ob_start();
+
+		self::challenge_shortcode_table_content( $cached_data );
 
 		return ob_get_clean();
 	}

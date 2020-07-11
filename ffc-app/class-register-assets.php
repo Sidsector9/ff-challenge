@@ -27,7 +27,7 @@ class Register_Assets {
 		$is_cached = wp_cache_get( 'ffc_challenge_payload' );
 
 		if ( false === $is_cached ) {
-			wp_register_script( 'ffc-challenge-shortcode-script', FFC_URL . 'src/front/js/ffc-challenge-shortcode.js', array(), '1.0', true );
+			wp_register_script( 'ffc-challenge-shortcode-script', FFC_URL . 'dist/js/ffc-challenge-shortcode.js', array(), '1.0', true );
 			wp_localize_script(
 				'ffc-challenge-shortcode-script',
 				'ffcGlobal',

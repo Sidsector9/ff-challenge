@@ -21,5 +21,10 @@ class Init_App {
 		( new \FFCApp\Shortcodes\Challenge() )->init();
 		( new \FFCApp\AjaxHandlers\Challenge_Shortcode_Ajax_Handler() )->init();
 		( new \FFCApp\Cli\FF_Cli() )->init();
+
+		/**
+		 * Admin instances.
+		 */
+		( new \FFCApp\Admin\FF_Challenge_Options_Page() )->init();
 	}
 }
