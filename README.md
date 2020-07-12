@@ -20,7 +20,6 @@ This plugin relies on [Redis Object Cache](https://wordpress.org/plugins/redis-c
 - `git clone https://github.com/Sidsector9/ff-challenge.git`
 - `cd ff-challenge`
 - `composer install`
-- `composer dump-autoload -o`
 - `yarn install`
 - `yarn build`
 

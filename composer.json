@@ -7,9 +7,7 @@
         }
     ],
     "autoload": {
-		"psr-4": {
-			"FFCApp\\": "ffc-app/"
-		}
+        "classmap": ["ffc-app/"]
 	},
     "require-dev": {
         "10up/wp_mock": "0.4.2",
