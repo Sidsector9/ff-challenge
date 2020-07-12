@@ -28,11 +28,11 @@ This plugin relies on [Redis Object Cache](https://wordpress.org/plugins/redis-c
 - **CLI**: `wp ff clear challenge-shortcode` will force the refresh of the data
 - **Options Page**: `Admin Dashboard > FF Challenge ` displays the API data on a custom options page
 
-### PHPUnit Tests
+### PHPUnit Tests:
 PHPUnit tests are written using [10up's WP_Mock](https://github.com/10up/wp_mock) since it is closer to performing the Unit Tests without loading the WordPress environment as in the case of `WP_UnitTestCase`
 
-### Post Page with shortcode (Twenty Twenty theme)
+### Post Page with shortcode (Twenty Twenty theme):
 ![formidable local_hello-world_](https://user-images.githubusercontent.com/17757960/87249704-3d349100-c47e-11ea-86b2-8cdc8c02dbce.png)
 
-### Custom Options page
+### Custom Options page:
 ![formidable local_wp-admin_admin php_page=ff-challenge](https://user-images.githubusercontent.com/17757960/87249708-4291db80-c47e-11ea-855f-8ce8bea56cf8.png)
