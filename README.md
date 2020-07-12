@@ -10,7 +10,7 @@
 - [x] Create a shortcode for the frontend, that when loaded uses Javascript to contact your AJAX endpoint and display the data returned formatted into a table-like display
 - [x] Create a WP CLI command that can be used to force the refresh of this data the next time the AJAX endpoint is called
 - [x] Create a WordPress admin page which displays this data in the style of the admin page of the WordPress plugin Formidable Forms that includes the Formidable logo and header. Include a button to refresh the data
-- [ ] Unit test to check if the request run multiple times an hour
+- [x] Unit test to check if the request run multiple times an hour
 - [x] Unit test to check ifthe table showing the expected results
 
 ### Installation notes:
