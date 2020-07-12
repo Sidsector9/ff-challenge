@@ -31,6 +31,11 @@ This plugin relies on [Redis Object Cache](https://wordpress.org/plugins/redis-c
 ### PHPUnit Tests:
 PHPUnit tests are written using [10up's WP_Mock](https://github.com/10up/wp_mock) since it is closer to performing the Unit Tests without loading the WordPress environment as in the case of `WP_UnitTestCase`
 
+### Browser Support:
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- |
+Latest ✔ | Latest ✔ | Latest ✔ |
+
 ### Post Page with shortcode (Twenty Twenty theme):
 ![formidable local_hello-world_](https://user-images.githubusercontent.com/17757960/87249704-3d349100-c47e-11ea-86b2-8cdc8c02dbce.png)
 
