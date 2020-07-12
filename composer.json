@@ -1,17 +1,17 @@
 {
-    "name": "siddharththevaril/ff-challenge",
-    "authors": [
-        {
-            "name": "Siddharth Thevaril",
-            "email": "siddharth.thevaril@gmail.com"
-        }
-    ],
-    "autoload": {
-        "classmap": ["ffc-app/"]
+	"name": "siddharththevaril/ff-challenge",
+	"authors": [
+		{
+			"name": "Siddharth Thevaril",
+			"email": "siddharth.thevaril@gmail.com"
+		}
+	],
+	"autoload": {
+		"classmap": ["ffc-app/"]
 	},
-    "require-dev": {
-        "10up/wp_mock": "0.4.2",
-        "automattic/vipwpcs": "^2.1",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0"
-    }
+	"require-dev": {
+		"10up/wp_mock": "0.4.2",
+		"automattic/vipwpcs": "^2.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0"
+	}
 }
