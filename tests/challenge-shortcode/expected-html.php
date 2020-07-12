@@ -1,4 +1,10 @@
 <?php
+/**
+ * This is the HTML that is expected to be produced
+ * by the `ffc_challenge` shortcode.
+ *
+ * @package FF_Challenge
+ */
 
 return '<table class="ffc-challenge-table">
 	<thead>
