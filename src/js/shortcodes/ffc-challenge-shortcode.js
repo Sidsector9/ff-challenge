@@ -18,10 +18,19 @@ addLoaderToElements( '.ffc-challenge-table' );
  * Call the Challenge API.
  */
 getChallengeData().then( function ( responseData ) {
+
 	/**
 	 * Remove the loader once AJAX call completes.
 	 */
 	removeLoaderFromElements();
+
+	if ( false === responseData ) {
+		const shortcodeTables = document.querySelectorAll( '.ffc-challenge-table' );
+		[].forEach.call( shortcodeTables, function( table ) {
+			table.remove();
+		} );
+		return;
+	}
 
 	/**
 	 * Send the AJAX response to server to cache for

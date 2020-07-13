@@ -4,7 +4,11 @@
 export function getChallengeData() {
 	return fetch( 'http://api.strategy11.com/wp-json/challenge/v1/1' ).then(
 		( response ) => {
-			return response.json();
+			if ( 200 === response.status ) {
+				return response.json();
+			}
+
+			return false;
 		}
 	);
 }
